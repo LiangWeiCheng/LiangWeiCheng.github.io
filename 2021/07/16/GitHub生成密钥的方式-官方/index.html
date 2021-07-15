@@ -6,15 +6,15 @@
   
   <title>GitHub生成密钥的方式(官方) | Vincent&#39;s Blogger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="参考:生成密钥">
+  <meta name="description" content="参考:生成密钥 生成新 SSH 密钥 打开 Terminal（终端）。 粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。1$ ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;  注：如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：1$ ssh-keygen -t rsa -b 4096 -C &amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub生成密钥的方式(官方)">
 <meta property="og:url" content="https://www.ibitcoder.com/2021/07/16/GitHub%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E7%9A%84%E6%96%B9%E5%BC%8F-%E5%AE%98%E6%96%B9/index.html">
 <meta property="og:site_name" content="Vincent&#39;s Blogger">
-<meta property="og:description" content="参考:生成密钥">
+<meta property="og:description" content="参考:生成密钥 生成新 SSH 密钥 打开 Terminal（终端）。 粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。1$ ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;  注：如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：1$ ssh-keygen -t rsa -b 4096 -C &amp;qu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-15T16:45:00.000Z">
-<meta property="article:modified_time" content="2021-07-15T16:45:00.197Z">
+<meta property="article:modified_time" content="2021-07-15T16:45:46.077Z">
 <meta property="article:author" content="Vincent.liang">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -97,6 +97,36 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>参考:<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">生成密钥</a></p>
+<h3 id="生成新-SSH-密钥"><a href="#生成新-SSH-密钥" class="headerlink" title="生成新 SSH 密钥"></a><a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">生成新 SSH 密钥</a></h3><ol>
+<li>打开 Terminal（终端）。</li>
+<li>粘贴下面的文本（替换为您的 GitHub 电子邮件地址）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<strong>注：</strong>如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+这将创建以所提供的电子邮件地址为标签的新 SSH 密钥。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Generating public/private ed25519 key pair.</span></span><br></pre></td></tr></table></figure></li>
+<li>提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter a file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/you/.ssh/id_ed25519): [Press enter]</span></span><br></pre></td></tr></table></figure></li>
+<li>在提示时输入安全密码。 更多信息请参阅“<a target="_blank" rel="noopener" href="https://docs.github.com/cn/articles/working-with-ssh-key-passphrases">使用 SSH 密钥密码</a>”。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="将-SSH-密钥添加到-ssh-agent"><a href="#将-SSH-密钥添加到-ssh-agent" class="headerlink" title="将 SSH 密钥添加到 ssh-agent"></a><a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">将 SSH 密钥添加到 ssh-agent</a></h3><p>在向 ssh 代理添加新的 SSH 密钥以管理您的密钥之前，您应该检查现有 SSH 密钥并生成新的 SSH 密钥。 将 SSH 密钥添加到该代理时，应使用默认的 macOS <code>ssh-add</code> 命令，而不是使用通过 <a target="_blank" rel="noopener" href="https://www.macports.org/">macports</a>, <a target="_blank" rel="noopener" href="http://brew.sh/">homebrew</a> 或某些其他外部来源安装的应用程序。</p>
+<ol>
+<li>在后台启动 ssh 代理。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Agent pid 59566</span></span><br></pre></td></tr></table></figure>
+
+根据您的环境，您可能需要使用不同的命令。 例如，您可能需要在启动 ssh 代理之前运行 <code>sudo-s-H</code> 来使用根访问，或者您可能需要使用 <code>exec ssh-agent bash</code> 或 <code>exec ssh-agent zsh</code> 来运行 ssh-agent。</li>
+<li>如果您使用的是 macOS Sierra 10.12.2 或更高版本，则需要修改 <code>~/.ssh/config</code> 文件以自动将密钥加载到 ssh-agent 中并在密钥链中存储密码。<ul>
+<li>首先，检查您的 <code>~/.ssh/config</code> 文件是否在默认位置。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> open ~/.ssh/config</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> The file /Users/you/.ssh/config does not exist.</span></span><br></pre></td></tr></table></figure></li>
+<li>如果文件不存在，请创建该文件。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> touch ~/.ssh/config</span></span><br></pre></td></tr></table></figure></li>
+<li>打开您的 <code>~/.ssh/config</code> 文件，然后修改文件以包含以下行。 如果您的 SSH 密钥文件与示例代码具有不同的名称或路径，请修改文件名或路径以匹配您当前的设置。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AddKeysToAgent yes</span><br><span class="line">  UseKeychain yes</span><br><span class="line">  IdentityFile ~/.ssh/id_ed25519</span><br></pre></td></tr></table></figure>
+
+<strong>注意：</strong> 如果您选择不向密钥添加密码，应该省略 <code>UseKeychain</code> 行。<strong>注意：</strong>如果您看到如下错误<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/USER/.ssh/config: line 16: Bad configuration option: usekeychain</span><br></pre></td></tr></table></figure>
+
+向 <code>Host *</code> 部分添加一个额外的配置行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  IgnoreUnknown UseKeychain</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 如果您创建了不同名称的密钥，或者您要添加不同名称的现有密钥，请将命令中的 <em>id_ed25519</em> 替换为您的私钥文件的名称。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-add -K ~/.ssh/id_ed25519</span></span><br></pre></td></tr></table></figure>
+
+<strong>注：</strong><code>-K</code> 选项位于 Apple 的 <code>ssh-add</code> 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。 如果选择不向密钥添加密码，请运行命令，而不使用 <code>-K</code> 选项。如果您没有安装 Apple 的标准版本，可能会收到错误消息。 有关解决此错误的详细信息，请参阅“<a target="_blank" rel="noopener" href="https://docs.github.com/cn/articles/error-ssh-add-illegal-option-k">错误：ssh-add：非法选项 – K</a>”。</li>
+<li>将 SSH 密钥添加到 GitHub 上的帐户。 更多信息请参阅“<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">将新的 SSH 密钥添加到 GitHub 帐户</a>”。</li>
+</ol>
 
       
     </div>
