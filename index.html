@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Maven设置代理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/18/Maven%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2021-07-18T14:38:44.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/Maven%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">Maven设置代理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Maven中代理服务器的设置，用以通过代理服务器访问远程库。</p>
+<p>在settings.xml文件中的配置示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;proxies&gt;</span><br><span class="line">    &lt;proxy&gt;</span><br><span class="line">      &lt;id&gt;myproxy&lt;/id&gt;</span><br><span class="line">      &lt;active&gt;true&lt;/active&gt;</span><br><span class="line">      &lt;protocol&gt;http&lt;/protocol&gt;</span><br><span class="line">      &lt;host&gt;proxy.somewhere.com&lt;/host&gt;</span><br><span class="line">      &lt;port&gt;8080&lt;/port&gt;</span><br><span class="line">      &lt;username&gt;proxyuser&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;somepassword&lt;/password&gt;</span><br><span class="line">      &lt;nonProxyHosts&gt;*.google.com|ibiblio.org&lt;/nonProxyHosts&gt;</span><br><span class="line">    &lt;/proxy&gt;</span><br><span class="line">  &lt;/proxies&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：<br>id，代理的ID，默认default<br>active，是否激活该代理，默认true<br>protocol，代理服务器的协议，默认http<br>host，代理服务器的主机<br>port，代理服务器的端口，默认8080<br>nonProxyHosts，不使用代理服务器的域名，多个域名使用|分割</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://www.ibitcoder.com/2021/07/18/Maven%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" data-id="ckr9b15950000ntjrc5a0h0gc" data-title="Maven设置代理" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Git基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/07/18/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
@@ -344,7 +389,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heart/" rel="tag">Heart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tech/" rel="tag">Tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/" rel="tag">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Heart/" rel="tag">Heart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tech/" rel="tag">Tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/" rel="tag">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
     </div>
   </div>
 
@@ -354,7 +399,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Heart/" style="font-size: 10px;">Heart</a> <a href="/tags/Tech/" style="font-size: 10px;">Tech</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/git/" style="font-size: 20px;">git</a>
+      <a href="/tags/Heart/" style="font-size: 10px;">Heart</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Tech/" style="font-size: 10px;">Tech</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/git/" style="font-size: 20px;">git</a>
     </div>
   </div>
 
@@ -376,6 +421,10 @@
       <ul>
         
           <li>
+            <a href="/2021/07/18/Maven%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">Maven设置代理</a>
+          </li>
+        
+          <li>
             <a href="/2021/07/18/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">Git基本操作</a>
           </li>
         
@@ -389,10 +438,6 @@
         
           <li>
             <a href="/2021/07/16/%E5%9C%A8github%E4%B8%8A%E6%9F%A5%E6%89%BEstar%E6%9C%80%E5%A4%9A%E7%9A%84%E9%A1%B9%E7%9B%AE/">在github上查找star最多的项目</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/15/%E9%87%8D%E6%96%B0%E5%9B%9E%E5%BD%92/">重新回归</a>
           </li>
         
       </ul>
